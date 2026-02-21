@@ -54,7 +54,7 @@
     
     <footer class="site-footer">
         <div class="container">
-            <p data-translate="&copy; 2024 Mystery History. All rights reserved.">&copy; 2024 Mystery History. All rights reserved.</p>
+            <p>&copy; 2024 Mystery History. All rights reserved.</p>
         </div>
     </footer>
     <script src="static/js/translate.js"></script>
