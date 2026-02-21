@@ -9,11 +9,12 @@
 <body>
     <header class="site-header">
         <div class="container">
-            <h1 class="site-title"><a href="index.html">Mystery History</a></h1>
+            <h1 class="site-title"><a href="index.html" data-translate="Mystery History">Mystery History</a></h1>
             <p class="site-tagline">Unknown Stories from the Past</p>
             <nav class="main-nav">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
+                <a href="index.html" data-translate="Home">Home</a>
+                <a href="about.html" data-translate="About">About</a>
+                            <button class="language-toggle" id="langToggle" onclick="toggleLanguage()" title="Switch Language">EN</button>
             </nav>
         </div>
     </header>
@@ -43,5 +44,6 @@
             <p>&copy; 2026 Mystery History. All rights reserved.</p>
         </div>
     </footer>
+    <script src="static/js/translate.js"></script>
 </body>
 </html>

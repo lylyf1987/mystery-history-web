@@ -10,10 +10,11 @@
 <body>
     <header class="site-header">
         <div class="container">
-            <h1 class="site-title"><a href="index.html">Mystery History</a></h1>
+            <h1 class="site-title"><a href="index.html" data-translate="Mystery History">Mystery History</a></h1>
             <nav class="site-nav">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
+                <a href="index.html" data-translate="Home">Home</a>
+                <a href="about.html" data-translate="About">About</a>
+                            <button class="language-toggle" id="langToggle" onclick="toggleLanguage()" title="Switch Language">EN</button>
             </nav>
         </div>
     </header>
@@ -22,14 +23,14 @@
         <div class="container">
             <!-- Categories Section -->
             <section id="categories" class="categories-section">
-                <h2 class="section-title">Explore Stories</h2>
+                <h2 class="section-title" data-translate="Explore Stories">Explore Stories</h2>
                 
                 <!-- Ancient Mysteries -->
                 <a href="categories/ancient-mysteries.html" class="category-bar">
                     <img src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=400&h=120&fit=crop" alt="Ancient Mysteries" class="category-bar-image">
                     <div class="category-bar-content">
-                        <h3 class="category-bar-title">Ancient Mysteries</h3>
-                        <p class="category-bar-desc">Enigmas from antiquity that defy explanation</p>
+                        <h3 class="category-bar-title" data-translate="Ancient Mysteries">Ancient Mysteries</h3>
+                        <p class="category-bar-desc" data-translate="Enigmas from antiquity that defy explanation">Enigmas from antiquity that defy explanation</p>
                     </div>
                 </a>
                 
@@ -37,8 +38,8 @@
                 <a href="categories/interesting-history.html" class="category-bar">
                     <img src="https://images.unsplash.com/photo-1461360228754-6e81c478b882?w=400&h=120&fit=crop" alt="Interesting History" class="category-bar-image">
                     <div class="category-bar-content">
-                        <h3 class="category-bar-title">Interesting History</h3>
-                        <p class="category-bar-desc">Fascinating lesser-known stories from world history</p>
+                        <h3 class="category-bar-title" data-translate="Interesting History">Interesting History</h3>
+                        <p class="category-bar-desc" data-translate="Fascinating lesser-known stories from world history">Fascinating lesser-known stories from world history</p>
                     </div>
                 </a>
                 
@@ -46,8 +47,8 @@
                 <a href="categories/unknown-phenomena.html" class="category-bar">
                     <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=120&fit=crop" alt="Unknown Phenomena" class="category-bar-image">
                     <div class="category-bar-content">
-                        <h3 class="category-bar-title">Unknown Phenomena</h3>
-                        <p class="category-bar-desc">UFOs, paranormal events, and unexplained mysteries</p>
+                        <h3 class="category-bar-title" data-translate="Unknown Phenomena">Unknown Phenomena</h3>
+                        <p class="category-bar-desc" data-translate="UFOs, paranormal events, and unexplained mysteries">UFOs, paranormal events, and unexplained mysteries</p>
                     </div>
                 </a>
             </section>
@@ -59,5 +60,6 @@
             <p>&copy; 2024 Mystery History. All rights reserved.</p>
         </div>
     </footer>
+    <script src="static/js/translate.js"></script>
 </body>
 </html>
