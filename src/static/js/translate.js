@@ -1,60 +1,36 @@
 // Language Toggle System for Mystery History Website
-// High-quality Chinese translations
+// Clean implementation with proper translations
 
 (function() {
-    // Translation dictionary with high-quality Chinese translations
+    // Translation dictionary: English -> Chinese
     const translations = {
         'Home': '首页',
         'About': '关于我们',
         'Mystery History': '神秘历史',
         'Explore Stories': '探索故事',
         'Ancient Mysteries': '古代之谜',
-        'Interesting History': '趣味历史',
-        'Unknown Phenomena': '未解之谜',
         'Enigmas from antiquity that defy explanation': '来自远古的难解之谜',
+        'Interesting History': '趣味历史',
         'Fascinating lesser-known stories from world history': '世界历史中鲜为人知的精彩故事',
+        'Unknown Phenomena': '未解之谜',
         'UFOs, paranormal events, and unexplained mysteries': '不明飞行物、超自然现象和未解之谜',
-        'The Antikythera Mechanism': '安提基特拉机械',
-        'The Voynich Manuscript': '伏尼契手稿',
-        'The Indus Valley Civilization': '印度河文明',
-        'The Lost Fabergé Eggs': '失落的法贝热彩蛋',
-        'The Lost City of Heracleion': '失落的赫拉克利翁古城',
-        'The Dancing Plague of 1518': '1518年舞蹈瘟疫',
-        'An ancient Greek analog computer that predates modern technology by 2,000 years': '一台比现代技术早2000年的古希腊模拟计算机',
-        'A mysterious medieval manuscript written in an unknown script': '一部用未知文字写成的神秘中世纪手稿',
-        'One of the world's oldest urban civilizations that mysteriously declined': '世界上最早的城市文明之一，神秘地衰落',
-        'Imperial Russian treasures that vanished during the revolution': '革命期间消失的俄罗斯帝国珍宝',
-        'An ancient Egyptian city that sank into the Mediterranean Sea': '一座沉入地中海的古埃及城市',
-        'A mysterious epidemic where people danced uncontrollably for weeks': '一场神秘的流行病，人们无法控制地跳舞数周',
-        'Unknown Stories from the Past': '来自过去的未知故事',
-        'Discover fascinating mysteries, forgotten histories, and lesser-known stories from around the world.': '探索世界各地的迷人谜团、被遗忘的历史和鲜为人知的故事。',
         'All rights reserved.': '版权所有。',
-        'About Mystery History': '关于神秘历史',
-        'Welcome to Mystery History, your gateway to the world's most fascinating unsolved mysteries and forgotten tales from the past.': '欢迎来到神秘历史，这里是通往世界上最迷人的未解之谜和被遗忘故事的门户。',
-        'Our Mission': '我们的使命',
-        'We are dedicated to bringing you well-researched, engaging stories about historical mysteries that continue to captivate and puzzle us.': '我们致力于为您带来经过深入研究、引人入胜的历史谜团故事。',
-        'From ancient civilizations that vanished without a trace to unexplained phenomena that defy scientific explanation, we explore the questions that have intrigued humanity for centuries.': '从无影无踪消失的古代文明到科学无法解释的超自然现象，我们探索几个世纪以来一直吸引人类的问题。',
-        'What We Cover': '我们的内容',
-        'Ancient Mysteries: Explore enigmatic artifacts, lost civilizations, and archaeological puzzles.': '古代之谜：探索神秘文物、失落的文明和考古谜题。',
-        'Interesting History: Discover lesser-known historical events and figures that shaped our world.': '趣味历史：发现塑造我们世界的鲜为人知的历史事件和人物。',
-        'Unknown Phenomena: Investigate unexplained events, paranormal activities, and scientific anomalies.': '未解之谜：调查无法解释的事件、超自然活动和科学异常现象。',
-        'Join us on this journey through time as we uncover the secrets of the past.': '加入我们，一起踏上这段穿越时空的旅程，揭开过去的秘密。',
-        'Back to Categories': '返回分类'        ''Enigmas from antiquity that defy explanation'': '来自远古的难解之谜'        ''Ancient Mysteries'': '古代之谜'        ''UFOs, paranormal events, and unexplained mysteries'': '不明飞行物、超自然现象和未解之谜'        ''Interesting History'': '趣味历史'        ''Fascinating lesser-known stories from world history'': '世界历史中鲜为人知的精彩故事'        ''Unknown Phenomena'': '未解之谜'        '"The Antikythera Mechanism: Ancient Greece's Analog Computer"': '安提基特拉机械：古希腊的模拟计算机'        ''In 1901, sponge divers off the coast of the Greek island of Antikythera made a discovery that would challenge everything we thought we knew about ancient technology.'': '1901年，在希腊安提基特拉岛附近的海绵潜水员发现了一个挑战我们对古代技术认知的发现。在一艘罗马沉船的残骸中，躺着一个锈迹斑斑的青铜装置，显得格格不入——一个大约公元前100年的机械计算机。'        '"A Discovery That Shouldn't Exist"': '不应存在的发现'        ''When archaeologist Valerios Stais first examined the mysterious lump of bronze, he noticed gear teeth embedded in the corrosion.'': '当考古学家Valerios Stais首次检查这个神秘的青铜块时，他注意到腐蚀中嵌有齿轮。'        '"It seemed impossible. The ancient Greeks weren't supposed to have possessed technical knowledge to create such sophisticated machinery."': '这似乎不可能。古希腊人被认为不具备制造如此精密机械的技术知识。'        ''Yet there it was, defying two millennia of historical assumptions.'': '然而它确实存在，挑战了两千年的历史认知。'        ''For decades, the device remained an enigma.'': '几十年来，这个装置一直是个谜。'        '"Early X-ray studies in the 1970s revealed an intricate system of at least 30 interlocking gears, but the true complexity of the mechanism wouldn't be understood until modern imaging technology allowed researchers to peer inside the calcified remains."': '1970年代的早期X射线研究揭示了至少30个相互咬合的齿轮的精密系统，但直到现代成像技术让研究人员能够窥见钙化残骸内部，才真正理解了这一机制的复杂性。'        ''What Did It Do?'': '它的作用是什么？'        ''The Antikythera Mechanism was, in essence, an astronomical calculator.'': '安提基特拉机械本质上是一个天文计算器。'        ''By turning a hand crank, the user could calculate the positions of the sun, moon, and planets for any given date.'': '通过转动曲柄，用户可以计算任何给定日期的太阳、月亮和行星的位置。'        ''It could predict eclipses decades in advance and track the four-year cycle of the ancient Olympic Games.'': '它可以提前几十年预测日食，并追踪古代奥林匹克运动会的四年周期。'        '"The device's sophistication is staggering."': '这一装置的精密程度令人惊叹。'        '"It incorporated differential gearing—technology that wouldn't reappear in Europe until the 16th century—and could model the irregular motion of the moon through the sky with remarkable precision."': '它采用了差速齿轮技术——这种技术直到16世纪才在欧洲重新出现——并且能够极其精确地模拟月球在天空中的不规则运动。'        ''Inscriptions on the device suggest it may have been used to track celestial events for religious and agricultural purposes.'': '装置上的铭文表明它可能被用于追踪天象事件，服务于宗教和农业目的。'        ''Technology Lost to Time'': '失传的科技'        ''Perhaps the most haunting aspect of the Antikythera Mechanism is what its existence implies about ancient knowledge that has been lost.'': '安提基特拉机械最令人深思的方面是，它的存在暗示了那些已经失传的古代知识。'        '"This wasn't a one-off curiosity; the craftsmanship suggests a tradition of similar devices."': '这并非一个孤立的好奇物品；工艺水平表明存在类似的装置传统。'        ''Cicero wrote of astronomical instruments created by the philosopher Posidonius that sound remarkably similar.'': '西塞罗描述过哲学家波西多尼乌斯制作的天文仪器，听起来非常相似。'        ''What other technological marvels did the ancient world create that have since vanished?'': '古代世界还创造了哪些后来消失的其他技术奇迹？'        ''The mechanism stands as a humbling reminder that our ancestors were far more sophisticated than we often credit them.'': '这一机制提醒着我们，我们的祖先远比我们通常认为的要更加先进。'        ''Modern Research Continues'': '现代研究继续'        '"In 2021, researchers using advanced CT scanning technology announced they had decoded virtually all of the mechanism's surviving inscriptions."': '2021年，使用先进CT扫描技术的研究人员宣布，他们已经解码了这一装置几乎所有的幸存铭文。'        '"The text revealed a user manual of sorts, explaining how to interpret the device's various dials and pointers."': '这些文字揭示了一种用户手册，解释了如何解读装置的各种刻度和指针。'        ''Each new discovery only deepens the mystery of how such advanced engineering was achieved—and lost.'': '每一个新发现只会加深这样一个谜团：如此先进的工程技术是如何实现——并失传的。'        ''The Voynich Manuscript: The Book No One Can Read'': '伏尼契手稿：无人能读懂的书'        ''In 1912, rare book dealer Wilfrid Voynich discovered a peculiar manuscript in a Jesuit library in Italy.'': '1912年，珍本书商Wilfrid Voynich在意大利的一所耶稣会图书馆中发现了一份奇特的手稿。'        ''Its 240 pages were filled with elegant handwriting in an unknown script, accompanied by bizarre illustrations of unidentifiable plants, astronomical diagrams, and naked figures bathing in interconnected pools.'': '这份240页的手稿充满了用未知文字书写的优雅笔迹，配有无法辨认的植物插图、天文图表和在相互连接的水池中沐浴的赤身人物。'        ''A century later, it remains undeciphered—the most mysterious book in the world.'': '一个世纪后，它仍然未被破译——世界上最神秘的书。'        ''A Code That Breaks Codebreakers'': '破译密码者的克星'        ''The manuscript has defeated the brightest minds of the 20th century.'': '这份手稿击败了20世纪最聪明的大脑。'        ''Codebreakers who cracked Nazi encryption during World War II turned their attention to Voynich—and failed.'': '二战期间破解纳粹密码的密码破译员将注意力转向伏尼契手稿——并失败了。'        ''Linguists, cryptographers, and even artificial intelligence systems have been unable to determine whether the text represents a real language, an elaborate cipher, or an elaborate hoax.'': '语言学家、密码学家，甚至人工智能系统都无法确定这份文字代表的是真实语言、复杂的密码，还是一个精心设计的骗局。'        ''Statistical analysis of the text reveals patterns consistent with natural language—letter frequencies, word structures, and repetitive phrases that suggest meaning.'': '对文本的统计分析揭示了与自然语言一致的模式——字母频率、词汇结构和重复的短语暗示着意义的存在。'        ''Yet no known language matches these patterns.'': '然而没有已知语言符合这些模式。'        ''The script flows smoothly across pages with corrections and amendments, suggesting a scribe writing in a language they knew well.'': '文字流畅地延续在页面上，有修改和修正，表明抄写员用他们熟悉的语言书写。'        ''The Illustrations Deepen the Mystery'': '插图加深了谜团'        '"The manuscript's illustrations only add to the puzzle."': '手稿的插图只是增加了谜团的复杂性。'        '"The botanical section depicts plants that don't exist—composite organisms with roots from one species, leaves from another, and flowers from a third."': '植物学部分描绘了不存在的植物——由一个物种的根部、另一个物种的叶子和第三个物种的花朵组成的复合生物。'        '"The astronomical section shows configurations that don't match any known star patterns."': '天文部分显示了不符合任何已知恒星模式的配置。'        ''Small naked figures cavort in green liquid pools connected by impossible plumbing.'': '赤身小人物在由不可能的管道连接的绿色液体池中嬉戏。'        ''Some illustrations appear to show plants from the Americas—suggesting the manuscript post-dates Columbus'': '一些插图似乎展示了来自美洲的植物——表明手稿年代晚于哥伦布'        ''while the vellum has been carbon-dated to the early 15th century, decades before European contact with the New World.'': '而羊皮纸碳测年法测定为15世纪早期，比欧洲接触新世界早了几十年。'        ''Theories and Suspects'': '理论和嫌疑人'        ''Proposed authors include Roger Bacon, the 13th-century English philosopher; Elizabethan occultist John Dee; and various unknown alchemists.'': '提出的作者包括13世纪英国哲学家罗杰·培根；伊丽莎白时代神秘学家约翰·迪伊；以及各种未知的炼金术士。'        ''Some believe the manuscript contains medical knowledge, perhaps gynecological treatments given the prominence of female figures.'': '有些人认为手稿包含医学知识，也许是妇科治疗，考虑到女性人物突出。'        '"Others argue it's a constructed language or an elaborate Renaissance hoax designed to part a wealthy collector from their money."': '另一些人认为这是一种人造语言或精心设计的文艺复兴骗局，目的是骗取富有的收藏家的钱财。'        ''In 2020, a German scholar claimed to have decoded portions of the text as a proto-Romance language, but his findings remain controversial.'': '2020年，一位德国学者声称已经将部分文本破译为原始罗曼语，但他的发现仍然存在争议。'        ''The Voynich Manuscript continues to guard its secrets, a 600-year-old mystery that may never be solved.'': '伏尼契手稿继续守护着它的秘密，一个可能永远无法解开的600年谜团。'        ''The Indus Valley Civilization: A Mystery Written in Unreadable Script'': '印度河文明：无法阅读文字的谜团'        ''At its peak around 2600 BCE, the Indus Valley Civilization encompassed over 5 million people across a region larger than ancient Egypt and Mesopotamia combined.'': '在其巅峰时期约公元前2600年，印度河文明涵盖了超过500万人口，地域比古埃及和美索不达米亚的总和还要大。'        '"Its cities featured sophisticated urban planning, standardized construction, and indoor plumbing—amenities that wouldn't appear in Europe for another 4,000 years."': '其城市具有先进的城市规划、标准化的建筑和室内管道——这些设施在欧洲要再过4000年才会出现。'        ''Then, around 1900 BCE, it vanished.'': '然后，约公元前1900年，它消失了。'        ''Cities Ahead of Their Time'': '超越时代的城市'        ''The ruins of Mohenjo-daro and Harappa reveal cities laid out on precise grid systems, with streets oriented to catch prevailing winds.'': '摩亨佐-达罗和哈拉帕的遗迹揭示了按照精确网格系统布局的城市，街道设计为迎着盛行风向。'        ''Houses had private wells and bathrooms connected to city-wide drainage systems.'': '房屋有私人水井和连接到全市排水系统的浴室。'        ''The famous "Great Bath" of Mohenjo-daro suggests ritual purification practices that would later appear in Hindu traditions.'': '摩亨佐-达罗著名的“大浴池”暗示了后来在印度教传统中出现的净化仪式。'        ''Most remarkably, the civilization achieved this without palaces, temples, or royal tombs that characterize other ancient societies.'': '最引人注目的是，这个文明在宫殿、庙宇或皇家陵墓方面——这些特征其他古代社会都有的——没有成就。'        ''Archaeologists have found no evidence of kings, armies, or social stratification.'': '考古学家没有发现国王、军队或社会分层的证据。'        ''It appears to have been a remarkably egalitarian society—making its disappearance all the more puzzling.'': '这似乎是一个相当平等的社会——使其消失更加令人费解。'        ''The Undeciphered Script'': '无法破译的文字'        ''Thousands of inscribed seals and tablets have been discovered, covered in a script of approximately 400 distinct symbols.'': '已发现数千个刻有铭文的印章和泥板，覆盖着约400个不同符号的文字。'        ''Despite decades of attempts by linguists, cryptographers, and even artificial intelligence systems, the Indus script remains unreadable.'': '尽管语言学家、密码学家甚至人工智能系统进行了几十年的尝试，印度文字仍然无法解读。'        ''Without the ability to read their writing, fundamental questions about the civilization remain unanswered.'': '没有能力阅读他们的文字，关于这一文明的基本问题仍然没有答案。'        ''What language did they speak?'': '他们说什么语言？'        ''What were their religious beliefs?'': '他们的宗教信仰是什么？'        ''Why did their civilization collapse?'': '他们的文明为何崩溃？'        '"The script holds the key to understanding one of humanity's most sophisticated early societies."': '这些文字掌握着理解人类最先进的早期社会之一的关键。'        ''Theories of Collapse'': '崩溃理论'        '"Climate change appears to have played a significant role in the civilization's decline."': '气候变化似乎在该文明的衰落中起了重要作用。'        ''Studies of ancient sediments suggest that the Ghaggar-Hakra river, which watered many Indus cities, dramatically changed course or dried up entirely around 1900 BCE.'': '对古代沉积物的研究表明，灌溉许多印度城市的加格尔-哈克拉河在约公元前1900年急剧改道或完全干涸。'        ''Other theories point to Aryan invasions, though evidence for this remains contested.'': '其他理论指向雅利安人入侵，尽管证据仍然存在争议。'        ''What makes the Indus Valley Civilization particularly mysterious is the apparent absence of violence in its end.'': '印度河文明特别神秘的是其末期的明显缺乏暴力迹象。'        ''Unlike other ancient civilizations that show signs of warfare or conquest, Indus cities seem to have simply been abandoned, their inhabitants dispersing into smaller communities.'': '与其他显示战争或征服迹象的古代文明不同，印度城市似乎只是被简单遗弃，居民分散到更小的社区。'        ''Living Legacy'': '活着的遗产'        ''While the civilization itself disappeared, its influence may persist in unexpected ways.'': '虽然文明本身消失了，但它的影响可能以意想不到的方式延续。'        ''Some scholars believe that yoga, meditation practices, and even aspects of Hindu cosmology have roots in Indus Valley traditions.'': '一些学者认为，瑜伽、冥想实践，甚至印度宇宙学的某些方面都可以追溯到印度河传统。'        ''The famous "Proto-Shiva" seal, depicting a figure in a yogic posture surrounded by animals, hints at religious practices that would evolve into later Indian spiritual traditions.'': '著名的“原始湿婆”印章，描绘了一个被动物环绕的瑜伽姿势人物，暗示了后来演变为印度精神传统的宗教实践。'        '"The Lost Fabergé Eggs: Russia's Missing Imperial Treasures"': '失落的法贝热彩蛋：俄罗斯消失的帝国珍宝'        ''Between 1885 and 1917, the House of Fabergé created 50 magnificent jeweled eggs for the Russian imperial family.'': '1885年至1917年间，法贝热之家为俄罗斯帝国家族制作了50枚华丽的珠宝彩蛋。'        ''Each was a masterpiece of craftsmanship, containing intricate surprises and worth a fortune in gold, diamonds, and precious stones.'': '每一枚都是工艺杰作，包含精密的惊喜，价值连城的黄金、钻石和宝石。'        ''Today, eight of these treasures have vanished—lost to revolution, war, and time.'': '今天，这些珍宝中的八枚已经消失——消失在革命、战争和时间中。'        ''Imperial Masterpieces'': '帝国杰作'        ''The tradition began when Tsar Alexander III commissioned an Easter egg for his wife, Empress Maria Feodorovna.'': '这一传统始于沙皇亚历山大三世为妻子玛丽亚·费奥多罗芙娜委托制作复活节彩蛋。'        ''The First Hen Egg appeared simple—a white enamel shell—but opened to reveal a gold yolk, which contained a golden hen, which contained a miniature diamond crown and ruby pendant.'': '第一枚母鸡彩蛋看起来简单——白色珐琅外壳——但打开后露出一个金蛋黄，里面有一只金母鸡，金母鸡里面有一个微型钻石皇冠和红宝石吊坠。'        ''The empress was delighted, and a tradition was born.'': '皇后非常高兴，一个传统诞生了。'        ''Each subsequent egg was more elaborate than the last.'': '每一枚后来的彩蛋都比前一枚更加精致。'        ''The Trans-Siberian Railway Egg contained a working model of a train.'': '西伯利亚铁路彩蛋包含一个火车的可工作模型。'        ''The Bay Tree Egg featured a mechanical bird that could flap its wings and sing.'': '贝树彩蛋配备了一只可以扇动翅膀和唱歌的机械鸟。'        ''The Winter Egg, made of rock crystal and diamonds, sold at auction in 2002 for $9.6 million.'': '由水晶和钻石制作的冬季彩蛋，在2002年拍卖会上以960万美元售出。'        ''Lost to Revolution'': '在革命中失传'        '"When Bolsheviks seized power in 1917, the imperial family's treasures were confiscated."': '1917年布尔什维克夺取政权后，帝国家族的珍宝被没收。'        ''Many Fabergé eggs were sold abroad by the Soviet government to raise foreign currency.'': '许多法贝热彩蛋被苏联政府出售到国外以换取外汇。'        ''Others disappeared in the chaos of revolution and civil war.'': '其他彩蛋在革命和内战的混乱中消失。'        ''The last eggs created for the doomed Romanovs may have been looted from the palace or hidden by loyal servants.'': '为注定灭亡的罗曼诺夫家族制作的最后几枚彩蛋可能从宫殿中被掠夺或被忠诚的仆人藏匿。'        ''Of the eight missing eggs, we know the names of most:'': '在八枚失踪的彩蛋中，我们知道大部分的名字：'        ''Hen with Sapphire Pendant, Cherub with Chariot, Necessaire, Mauve, Empire Nephrite, Royal Danish, Alexander III Commemorative, and one whose name has been lost to history.'': '蓝宝石吊坠母鸡、战车天使、必需品、淡紫色、帝国软玉、皇家丹麦、亚历山大三世纪念，以及一枚名字已经消失在历史中。'        ''Their combined value today would exceed $100 million.'': '它们的总价值今天将超过1亿美元。'        ''Remarkable Recoveries'': '非凡的发现'        ''Occasionally, lost eggs resurface in extraordinary circumstances.'': '偶尔，失踪的彩蛋在非凡的情况下重新出现。'        ''In 2014, a scrap metal dealer in the American Midwest bought a golden egg at a flea market, intending to melt it for its gold value.'': '2014年，美国中西部一位废金属经销商在跳蚤市场上购买了一枚金蛋，打算熔化其以获取黄金价值。'        ''A web search revealed it was the Third Imperial Easter Egg, worth $33 million.'': '网络搜索显示这是第三枚帝国复活节彩蛋，价值3300万美元。'        ''It had been missing since 1964.'': '它自1964年以来一直失踪。'        ''Another egg, the Resurrection Egg, was discovered in 2021 in a private collection in Poland.'': '另一枚彩蛋，复活节彩蛋，于2021年在波兰的一个私人收藏中被发现。'        ''The owner had no idea what they possessed.'': '所有者完全不知道自己拥有的是什么。'        ''These discoveries give hope that the remaining eight eggs may still exist, perhaps unrecognized, in attics and collections around the world.'': '这些发现给了人们希望，剩余的八枚彩蛋可能仍然存在，也许未被识别，在世界各地的阁楼和收藏中。'        ''The Hunt Continues'': '搜寻继续'        ''Fabergé researchers continue to search for missing eggs, following leads through auction records, family archives, and tips from collectors.'': '法贝热研究人员继续寻找失踪的彩蛋，追踪拍卖记录、家族档案和收藏家提供的线索。'        ''Some believe the eggs may be in Russia, hidden during the Soviet era.'': '有些人认为彩蛋可能在俄罗斯，在苏联时期被隐藏。'        ''Others think they were destroyed during World War II.'': '另一些人认为它们在二战期间被销毁。'        ''The mystery endures, a treasure hunt spanning continents and generations.'': '谜团仍在继续，这是一场跨越大陆和几代人的寻宝之旅。'        '"The Lost City of Heracleion: Egypt's Sunken Atlantis"': '失落的赫拉克利翁城：埃及沉没的亚特兰蒂斯'        ''The Dancing Plague of 1518: When Strasbourg Danced to Death'': '1518年舞蹈瘟疫：当斯特拉斯堡跳舞跳到死'        ''It began with one woman.'': '这一切始于一个女人。'        ''In July 1518, Frau Troffea stepped into the streets of Strasbourg and began to dance.'': '1518年7月，Frau Troffea走上斯特拉斯堡的街头开始跳舞。'        ''She danced for days without rest or apparent reason.'': '她连续几天不停地跳舞，没有休息也没有明显原因。'        ''Within a week, 34 others had joined her.'': '一周内，另外34人加入了她的行列。'        ''Within a month, 400 people were dancing uncontrollably in the summer heat.'': '一个月内，400人在夏日的酷暑中无法控制地跳舞。'        ''Many would dance themselves to death.'': '许多人跳到了死为止。'        ''A City Possessed'': '一座被诅咒的城市'        ''Contemporary accounts describe a scene of horror.'': '当时的记录描述了一个恐怖的场景。'        ''People danced with bleeding feet, their shoes worn through.'': '人们脚流着血跳舞，鞋子都磨穿了。'        ''Some collapsed from exhaustion, only to be forced back into the dance by an uncontrollable compulsion.'': '有些人因体力耗尽而倒下，却因为无法控制的冲动又被强迫继续跳舞。'        ''Physicians of the time, working within a framework of humoral medicine and religious belief, diagnosed "hot blood" and prescribed... more dancing.'': '当时的医生在体液医学和宗教信仰的框架下工作，诊断出“热血”，并开出了处方……更多的跳舞。'        ''City authorities constructed stages and hired musicians, believing the afflicted needed to dance the sickness out of their systems.'': '市政当局搭建了舞台并雇佣了音乐家，认为受感染者需要通过跳舞将疾病排出体外。'        ''This well-intentioned response only spread the contagion.'': '这个出于好意的回应只是传播了传染。'        ''By the time the plague finally subsided, dozens had died from heart attacks, strokes, and sheer exhaustion.'': '当瘟疫最终平息时，已有数十人死于心脏病、中风和极度疲惫。'        ''Theories Across Centuries'': '几个世纪以来的理论'        ''Published:'': '发布于：'        ''min read'': '分钟阅读'        ''Sources & Further Reading'': '来源与延伸阅读'        ''Back to Categories'': '返回分类',
+        'Back to Categories': '返回分类'
     };
+
 
     // Current language state
     let currentLang = localStorage.getItem('preferredLanguage') || 'en';
 
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
-        // Apply saved language preference
         if (currentLang === 'zh') {
             applyTranslations();
-            updateToggleButton();
         }
+        updateToggleButton();
     });
 
-    // Toggle language function (called by button)
+    // Toggle language function
     window.toggleLanguage = function() {
         currentLang = currentLang === 'en' ? 'zh' : 'en';
         localStorage.setItem('preferredLanguage', currentLang);
@@ -68,20 +44,15 @@
     };
 
     function applyTranslations() {
-        // Find all elements with data-translate attribute
         document.querySelectorAll('[data-translate]').forEach(function(el) {
             const key = el.getAttribute('data-translate');
             if (translations[key]) {
-                // Store original English text
                 if (!el.getAttribute('data-original')) {
                     el.setAttribute('data-original', el.textContent.trim());
                 }
                 el.textContent = translations[key];
             }
         });
-        
-        // Also update page title if it contains translatable content
-        updatePageTitle();
     }
 
     function restoreEnglish() {
@@ -91,27 +62,12 @@
                 el.textContent = original;
             }
         });
-        
-        // Restore page title
-        restorePageTitle();
     }
 
     function updateToggleButton() {
         const btn = document.getElementById('langToggle');
         if (btn) {
-            btn.textContent = 'EN | 中文';  // Show both languages
+            btn.textContent = currentLang === 'en' ? 'EN | 中文' : 'EN | 中文';
         }
-    }
-
-    function updatePageTitle() {
-        const titleElement = document.querySelector('title');
-        if (titleElement && translations[titleElement.textContent]) {
-            titleElement.textContent = translations[titleElement.textContent];
-        }
-    }
-
-    function restorePageTitle() {
-        // Page titles are handled by data-original on the title element if needed
-        // For now, we focus on body content translation
     }
 })();
