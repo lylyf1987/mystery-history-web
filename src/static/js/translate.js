@@ -1,73 +1,107 @@
-// Language Toggle System for Mystery History Website
-// Clean implementation with proper translations
+// Translation dictionary
+const translations = {
+    '&copy; 2024 Mystery History. All rights reserved.': '© 2024 神秘历史. 版权所有。',
+    '&copy; 2026 Mystery History. All rights reserved.': '© 2026 Mystery History. All rights reserved.',
+    'A City Possessed': 'A City Possessed',
+    'A Code That Breaks Codebreakers': 'A Code That Breaks Codebreakers',
+    'A Discovery That Shouldn't Exist': '本不该存在的发现',
+    'A mysterious epidemic where people danced uncontrollably for weeks': 'A mysterious epidemic where people danced uncontrollably for weeks',
+    'A mysterious medieval manuscript written in an unknown script': 'A mysterious medieval manuscript written in an unknown script',
+    'About': '关于我们',
+    'An ancient Egyptian city that sank into the Mediterranean Sea': 'An ancient Egyptian city that sank into the Mediterranean Sea',
+    'An ancient Greek analog computer that predates modern technology by 2,000 years': 'An ancient Greek analog computer that predates modern technology by 2,000 years',
+    'Ancient Greek historians wrote of a magnificent city at the mouth of the Nile, where Helen of Troy and her lover Paris once sought refuge. Heracleion (known as Thonis to the Egyptians) was a bustling port city, a gateway between Egypt and the Mediterranean world. Yet by the 2nd century AD, the city had vanished from historical records.': 'Ancient Greek historians wrote of a magnificent city at the mouth of the Nile, where Helen of Troy and her lover Paris once sought refuge. Heracleion (known as Thonis to the Egyptians) was a bustling port city, a gateway between Egypt and the Mediterranean world. Yet by the 2nd century AD, the city had vanished from historical records.',
+    'Ancient Mysteries': '古代之谜',
+    'Another egg, the Resurrection Egg, was discovered in 2021 in a private collection in Poland. The owner had no idea what they possessed. These discoveries give hope that the remaining eight eggs may still exist, perhaps unrecognized, in attics and collections around the world.': 'Another egg, the Resurrection Egg, was discovered in 2021 in a private collection in Poland. The owner had no idea what they possessed. These discoveries give hope that the remaining eight eggs may still exist, perhaps unrecognized, in attics and collections around the world.',
+    'At its peak around 2600 BCE, the Indus Valley Civilization encompassed over 5 million people across a region larger than ancient Egypt and Mesopotamia combined. Its cities featured sophisticated urban planning, standardized construction, and indoor plumbing\u2014amenities that wouldn't appear in Europe for another 4,000 years. Then, around 1900 BCE, it vanished.': 'At its peak around 2600 BCE, the Indus Valley Civilization encompassed over 5 million people across a region larger than ancient Egypt and Mesopotamia combined. Its cities featured sophisticated urban planning, standardized construction, and indoor plumbing—amenities that wouldn't appear in Europe for another 4,000 years. Then, around 1900 BCE, it vanished.',
+    'Between 1885 and 1917, the House of Faberg\u00e9 created 50 magnificent jeweled eggs for the Russian imperial family. Each was a masterpiece of craftsmanship, containing intricate surprises and worth a fortune in gold, diamonds, and precious stones. Today, eight of these treasures have vanished\u2014lost to revolution, war, and time.': 'Between 1885 and 1917, the House of Fabergé created 50 magnificent jeweled eggs for the Russian imperial family. Each was a masterpiece of craftsmanship, containing intricate surprises and worth a fortune in gold, diamonds, and precious stones. Today, eight of these treasures have vanished—lost to revolution, war, and time.',
+    'Cities Ahead of Their Time': 'Cities Ahead of Their Time',
+    'City authorities constructed stages and hired musicians, believing the afflicted needed to dance the sickness out of their systems. This well-intentioned response only spread the contagion. By the time the plague finally subsided, dozens had died from heart attacks, strokes, and sheer exhaustion.': 'City authorities constructed stages and hired musicians, believing the afflicted needed to dance the sickness out of their systems. This well-intentioned response only spread the contagion. By the time the plague finally subsided, dozens had died from heart attacks, strokes, and sheer exhaustion.',
+    'Climate change appears to have played a significant role in the civilization's decline. Studies of ancient sediments suggest that the Ghaggar-Hakra river, which watered many Indus cities, dramatically changed course or dried up entirely around 1900 BCE. Other theories point to Aryan invasions, though evidence for this remains contested.': 'Climate change appears to have played a significant role in the civilization's decline. Studies of ancient sediments suggest that the Ghaggar-Hakra river, which watered many Indus cities, dramatically changed course or dried up entirely around 1900 BCE. Other theories point to Aryan invasions, though evidence for this remains contested.',
+    'Contemporary accounts describe a scene of horror. People danced with bleeding feet, their shoes worn through. Some collapsed from exhaustion, only to be forced back into the dance by uncontrollable compulsion. Physicians of the time, working within a framework of humoral medicine and religious belief, diagnosed ': 'Contemporary accounts describe a scene of horror. People danced with bleeding feet, their shoes worn through. Some collapsed from exhaustion, only to be forced back into the dance by uncontrollable compulsion. Physicians of the time, working within a framework of humoral medicine and religious belief, diagnosed \"hot blood\" and prescribed... more dancing.',
+    'Each subsequent egg was more elaborate than the last. The Trans-Siberian Railway Egg contained a working model of a train. The Bay Tree Egg featured a mechanical bird that could flap its wings and sing. The Winter Egg, made of rock crystal and diamonds, sold at auction in 2002 for $9.6 million.': 'Each subsequent egg was more elaborate than the last. The Trans-Siberian Railway Egg contained a working model of a train. The Bay Tree Egg featured a mechanical bird that could flap its wings and sing. The Winter Egg, made of rock crystal and diamonds, sold at auction in 2002 for $9.6 million.',
+    'Enigmas from antiquity that defy explanation': '来自古代的难解之谜',
+    'Explore Stories': '探索故事',
+    'Faberg\u00e9 researchers continue to search for the missing eggs, following leads through auction records, family archives, and tips from collectors. Some believe the eggs may be in Russia, hidden during the Soviet era. Others think they were destroyed during World War II. The mystery endures, a treasure hunt spanning continents and generations.': 'Fabergé researchers continue to search for the missing eggs, following leads through auction records, family archives, and tips from collectors. Some believe the eggs may be in Russia, hidden during the Soviet era. Others think they were destroyed during World War II. The mystery endures, a treasure hunt spanning continents and generations.',
+    'Fascinating lesser-known stories from world history': '世界历史中鲜为人知的精彩故事',
+    'For decades, the device remained an enigma. Early X-ray studies in the 1970s revealed an intricate system of at least 30 interlocking gears, but the true complexity of the mechanism wouldn't be understood until modern imaging technology allowed researchers to peer inside the calcified remains.': '几十年来，这个装置一直是个谜。20世纪70年代的早期X射线研究揭示了一个复杂的系统，至少有30个相互啮合的齿轮，但直到现代成像技术让研究人员能够窥探钙化残骸内部，这个装置的真正复杂性才被理解。',
+    'Hidden Treasures': 'Hidden Treasures',
+    'Home': '首页',
+    'Imperial Masterpieces': 'Imperial Masterpieces',
+    'Imperial Russian treasures that vanished during the revolution': 'Imperial Russian treasures that vanished during the revolution',
+    'In 1901, sponge divers off the coast of the Greek island Antikythera made a discovery that would challenge everything we thought we knew about ancient technology. Hidden among the remains of a Roman shipwreck lay a corroded bronze device that appeared utterly out of place\u2014a mechanical computer from approximately 100 BCE.': '1901年，在希腊安提基特拉岛附近的海绵潜水员发现了一项重大发现，这将挑战我们对古代技术的所有认知。在一艘罗马沉船的残骸中，隐藏着一个严重腐蚀的青铜装置，它显得格格不入——这是一台约公元前100年的机械计算机。',
+    'In 1912, rare book dealer Wilfrid Voynich discovered a peculiar manuscript in a Jesuit library in Italy. Its 240 pages were filled with elegant handwriting in an unknown script, accompanied by bizarre illustrations of unidentifiable plants, astronomical diagrams, and naked figures bathing in interconnected pools. A century later, it remains undeciphered\u2014the most mysterious book in the world.': 'In 1912, rare book dealer Wilfrid Voynich discovered a peculiar manuscript in a Jesuit library in Italy. Its 240 pages were filled with elegant handwriting in an unknown script, accompanied by bizarre illustrations of unidentifiable plants, astronomical diagrams, and naked figures bathing in interconnected pools. A century later, it remains undeciphered—the most mysterious book in the world.',
+    'In 2000, after years of searching, French underwater archaeologist Franck Goddio and his team discovered the ruins of Heracleion 6.5 kilometers off the coast of Alexandria. Lying under 150 feet of water, the city's remains covered an area of nearly 1 square kilometer.': 'In 2000, after years of searching, French underwater archaeologist Franck Goddio and his team discovered the ruins of Heracleion 6.5 kilometers off the coast of Alexandria. Lying under 150 feet of water, the city's remains covered an area of nearly 1 square kilometer.',
+    'In 2020, a German scholar claimed to have decoded portions of the text as a proto-Romance language, but his findings remain controversial. The Voynich Manuscript continues to guard its secrets, a 600-year-old mystery that may never be solved.': 'In 2020, a German scholar claimed to have decoded portions of the text as a proto-Romance language, but his findings remain controversial. The Voynich Manuscript continues to guard its secrets, a 600-year-old mystery that may never be solved.',
+    'In 2021, researchers using advanced CT scanning technology announced they had decoded virtually all of the mechanism's surviving inscriptions. The text revealed a user manual of sorts, explaining how to interpret the device's various dials and pointers. Each new discovery only deepens the mystery of how such advanced engineering was achieved\u2014and lost.': '2021年，使用先进CT扫描技术的研究人员宣布，他们几乎解码了该装置所有幸存的铭文。文本揭示了一种用户手册，解释了如何解释装置的各种表盘和指针。每一项新发现都加深了这种先进工程是如何实现——以及丢失的谜团。',
+    'Interesting History': '趣味历史',
+    'It began with one woman. In July 1518, Frau Troffea stepped into the streets of Strasbourg and began to dance. She danced for days without rest or apparent reason. Within a week, 34 others had joined her. Within a month, 400 people were dancing uncontrollably in the summer heat. Many would dance themselves to death.': 'It began with one woman. In July 1518, Frau Troffea stepped into the streets of Strasbourg and began to dance. She danced for days without rest or apparent reason. Within a week, 34 others had joined her. Within a month, 400 people were dancing uncontrollably in the summer heat. Many would dance themselves to death.',
+    'Living Legacy': 'Living Legacy',
+    'Lost Civilizations': 'Lost Civilizations',
+    'Lost to Revolution': 'Lost to Revolution',
+    'Modern Parallels': 'Modern Parallels',
+    'Modern Research Continues': '现代研究继续',
+    'Modern explanations have ranged from the plausible to the speculative. Ergot poisoning, caused by a fungus on rye grain, can produce convulsions and hallucinations\u2014but ergotism typically causes gangrene and death, not coordinated dancing. Mass hysteria, triggered by extreme stress and religious fervor, remains a popular explanation.': 'Modern explanations have ranged from the plausible to the speculative. Ergot poisoning, caused by a fungus on rye grain, can produce convulsions and hallucinations—but ergotism typically causes gangrene and death, not coordinated dancing. Mass hysteria, triggered by extreme stress and religious fervor, remains a popular explanation.',
+    'Most remarkably, the civilization achieved this without the palaces, temples, or royal tombs that characterize other ancient societies. Archaeologists have found no evidence of kings, armies, or social stratification. It appears to have been a remarkably egalitarian society\u2014making its disappearance all the more puzzling.': 'Most remarkably, the civilization achieved this without the palaces, temples, or royal tombs that characterize other ancient societies. Archaeologists have found no evidence of kings, armies, or social stratification. It appears to have been a remarkably egalitarian society—making its disappearance all the more puzzling.',
+    'Mystery History': '神秘历史',
+    'Not an Isolated Incident': 'Not an Isolated Incident',
+    'Occasionally, lost eggs resurface in extraordinary circumstances. In 2014, a scrap metal dealer in the American Midwest bought a golden egg at a flea market, intending to melt it for its gold value. A web search revealed it was the Third Imperial Easter Egg, worth $33 million. It had been missing since 1964.': 'Occasionally, lost eggs resurface in extraordinary circumstances. In 2014, a scrap metal dealer in the American Midwest bought a golden egg at a flea market, intending to melt it for its gold value. A web search revealed it was the Third Imperial Easter Egg, worth $33 million. It had been missing since 1964.',
+    'Of the eight missing eggs, we know the names of most: the Hen with Sapphire Pendant, the Cherub with Chariot, the Necessaire, the Mauve, the Empire Nephrite, the Royal Danish, the Alexander III Commemorative, and one whose name has been lost to history. Their combined value today would exceed $100 million.': 'Of the eight missing eggs, we know the names of most: the Hen with Sapphire Pendant, the Cherub with Chariot, the Necessaire, the Mauve, the Empire Nephrite, the Royal Danish, the Alexander III Commemorative, and one whose name has been lost to history. Their combined value today would exceed $100 million.',
+    'One of the world's oldest urban civilizations that mysteriously declined': 'One of the world's oldest urban civilizations that mysteriously declined',
+    'Perhaps the most haunting aspect of the Antikythera Mechanism is what its existence implies about ancient knowledge that has been lost. This wasn't a one-off curiosity; the craftsmanship suggests a tradition of similar devices. Cicero wrote of astronomical instruments created by the philosopher Posidonius that sound remarkably similar.': '安提基特拉机械最令人不安的方面，也许是它的存在暗示了哪些古代知识已经丢失。这不是一个孤立的好奇物；工艺表明存在类似装置的传统。西塞罗曾写过哲学家波西多尼乌斯创造的天文仪器，听起来非常相似。',
+    'Proposed authors include Roger Bacon, the 13th-century English philosopher; the Elizabethan occultist John Dee; and various unknown alchemists. Some believe the manuscript contains medical knowledge, perhaps gynecological treatments given the prominence of female figures. Others argue it's a constructed language or an elaborate Renaissance hoax designed to part a wealthy collector from their money.': 'Proposed authors include Roger Bacon, the 13th-century English philosopher; the Elizabethan occultist John Dee; and various unknown alchemists. Some believe the manuscript contains medical knowledge, perhaps gynecological treatments given the prominence of female figures. Others argue it's a constructed language or an elaborate Renaissance hoax designed to part a wealthy collector from their money.',
+    'Remarkable Recoveries': 'Remarkable Recoveries',
+    'Remarkably, the 1518 outbreak was not unique. Medieval chronicles record at least seven similar dancing plagues between the 14th and 17th centuries. In 1374, outbreaks occurred across the Rhine Valley. In 1511, a dancing plague struck a convent in the Netherlands, with nuns meowing like cats and climbing trees.': 'Remarkably, the 1518 outbreak was not unique. Medieval chronicles record at least seven similar dancing plagues between the 14th and 17th centuries. In 1374, outbreaks occurred across the Rhine Valley. In 1511, a dancing plague struck a convent in the Netherlands, with nuns meowing like cats and climbing trees.',
+    'Scientists believe a combination of factors led to Heracleion's demise:': 'Scientists believe a combination of factors led to Heracleion's demise:',
+    'Share this story:': 'Share this story:',
+    'Some illustrations appear to show plants from the Americas\u2014suggesting the manuscript post-dates Columbus\u2014while the vellum has been carbon-dated to the early 15th century, decades before European contact with the New World.': 'Some illustrations appear to show plants from the Americas—suggesting the manuscript post-dates Columbus—while the vellum has been carbon-dated to the early 15th century, decades before European contact with the New World.',
+    'Sources & Further Reading': '参考资料与延伸阅读',
+    'Statistical analysis of the text reveals patterns consistent with natural language\u2014letter frequencies, word structures, and repetitive phrases that suggest meaning. Yet no known language matches these patterns. The script flows smoothly across pages with corrections and amendments, suggesting a scribe writing in a language they knew well.': 'Statistical analysis of the text reveals patterns consistent with natural language—letter frequencies, word structures, and repetitive phrases that suggest meaning. Yet no known language matches these patterns. The script flows smoothly across pages with corrections and amendments, suggesting a scribe writing in a language they knew well.',
+    'Strange Phenomena': 'Strange Phenomena',
+    'Strasbourg in 1518 was a city under immense pressure. Famine, disease, and religious upheaval had created a population on the edge. Some historians suggest the dancing plague was a psychological escape valve\u2014a collective breakdown that allowed people to express their despair through movement.': 'Strasbourg in 1518 was a city under immense pressure. Famine, disease, and religious upheaval had created a population on the edge. Some historians suggest the dancing plague was a psychological escape valve—a collective breakdown that allowed people to express their despair through movement.',
+    'Technology Lost to Time': '被时间遗忘的技术',
+    'The Antikythera Mechanism': '安提基特拉机械',
+    'The Antikythera Mechanism was, in essence, an astronomical calculator. By turning a hand crank, the user could calculate the positions of the sun, moon, and planets for any given date. It could predict eclipses decades in advance and track the four-year cycle of the ancient Olympic Games.': '安提基特拉机械本质上是一个天文计算器。通过转动曲柄，用户可以计算任何给定日期的太阳、月亮和行星的位置。它可以提前几十年预测日食，并追踪古代奥运会的四年周期。',
+    'The Antikythera Mechanism: Ancient Greece's Analog Computer': '安提基特拉机械：古希腊的模拟计算机',
+    'The Dancing Plague of 1518': '1518年舞蹈瘟疫',
+    'The Dancing Plague of 1518: When Strasbourg Danced to Death': 'The Dancing Plague of 1518: When Strasbourg Danced to Death',
+    'The Discovery': 'The Discovery',
+    'The Hunt Continues': '搜寻继续',
+    'The Illustrations Deepen the Mystery': 'The Illustrations Deepen the Mystery',
+    'The Indus Valley Civilization': '印度河文明',
+    'The Indus Valley Civilization: A Mystery Written in Unreadable Script': 'The Indus Valley Civilization: A Mystery Written in Unreadable Script',
+    'The Legend': 'The Legend',
+    'The Lost City of Heracleion': '失落的赫拉克利翁古城',
+    'The Lost Faberge Eggs': 'The Lost Faberge Eggs',
+    'The Lost Faberg\u00e9 Eggs: Russia's Missing Imperial Treasures': 'The Lost Fabergé Eggs: Russia's Missing Imperial Treasures',
+    'The Undeciphered Script': 'The Undeciphered Script',
+    'The Voynich Manuscript': '伏尼契手稿',
+    'The Voynich Manuscript: The Book No One Can Read': 'The Voynich Manuscript: The Book No One Can Read',
+    'The device's sophistication is staggering. It incorporated differential gearing\u2014a technology that wouldn't reappear in Europe until the 16th century\u2014and could model the irregular motion of the moon through the sky with remarkable precision. Inscriptions on the device suggest it may have been used to track celestial events for religious and agricultural purposes.': '这个装置的复杂性令人震惊。它采用了差速齿轮技术——这种技术直到16世纪才在欧洲重新出现——并且能够以非凡的精度模拟月亮在天空中的不规则运动。装置上的铭文表明，它可能被用于追踪宗教和农业目的的天象。',
+    'The manuscript has defeated the brightest minds of the 20th century. Codebreakers who cracked Nazi encryption during World War II turned their attention to the Voynich\u2014and failed. Linguists, cryptographers, and even artificial intelligence systems have been unable to determine whether the text represents a real language, an elaborate cipher, or an elaborate hoax.': 'The manuscript has defeated the brightest minds of the 20th century. Codebreakers who cracked Nazi encryption during World War II turned their attention to the Voynich—and failed. Linguists, cryptographers, and even artificial intelligence systems have been unable to determine whether the text represents a real language, an elaborate cipher, or an elaborate hoax.',
+    'The manuscript's illustrations only add to the puzzle. The botanical section depicts plants that don't exist\u2014composite organisms with roots from one species, leaves from another, and flowers from a third. The astronomical section shows configurations that don't match any known star patterns. Small naked figures cavort in green liquid pools connected by impossible plumbing.': 'The manuscript's illustrations only add to the puzzle. The botanical section depicts plants that don't exist—composite organisms with roots from one species, leaves from another, and flowers from a third. The astronomical section shows configurations that don't match any known star patterns. Small naked figures cavort in green liquid pools connected by impossible plumbing.',
+    'The ruins of Mohenjo-daro and Harappa reveal cities laid out on precise grid systems, with streets oriented to catch prevailing winds. Houses had private wells and bathrooms connected to city-wide drainage systems. The famous ': 'The ruins of Mohenjo-daro and Harappa reveal cities laid out on precise grid systems, with streets oriented to catch prevailing winds. Houses had private wells and bathrooms connected to city-wide drainage systems. The famous \"Great Bath\" of Mohenjo-daro suggests ritual purification practices that would later appear in Hindu traditions.',
+    'The tradition began when Tsar Alexander III commissioned an Easter egg for his wife, Empress Maria Feodorovna. The First Hen Egg appeared simple\u2014a white enamel shell\u2014but opened to reveal a gold yolk, which contained a golden hen, which contained a miniature diamond crown and ruby pendant. The empress was delighted, and a tradition was born.': 'The tradition began when Tsar Alexander III commissioned an Easter egg for his wife, Empress Maria Feodorovna. The First Hen Egg appeared simple—a white enamel shell—but opened to reveal a gold yolk, which contained a golden hen, which contained a miniature diamond crown and ruby pendant. The empress was delighted, and a tradition was born.',
+    'The underwater excavations have revealed that Heracleion was a major religious center, home to the Temple of Amun-Gereb. Over 70 shipwrecks found in the harbor suggest it was one of the most important trading ports in the ancient world.': 'The underwater excavations have revealed that Heracleion was a major religious center, home to the Temple of Amun-Gereb. Over 70 shipwrecks found in the harbor suggest it was one of the most important trading ports in the ancient world.',
+    'Theories Across Centuries': 'Theories Across Centuries',
+    'Theories and Suspects': 'Theories and Suspects',
+    'Theories of Collapse': 'Theories of Collapse',
+    'These outbreaks seem to have ended with the Enlightenment, as scientific rationalism replaced medieval explanations of demonic possession. Yet the dancing plague remains a haunting reminder of the mysterious relationship between mind, body, and collective behavior.': 'These outbreaks seem to have ended with the Enlightenment, as scientific rationalism replaced medieval explanations of demonic possession. Yet the dancing plague remains a haunting reminder of the mysterious relationship between mind, body, and collective behavior.',
+    'Thousands of inscribed seals and tablets have been discovered, covered in a script of approximately 400 distinct symbols. Despite decades of attempts by linguists, cryptographers, and even artificial intelligence systems, the Indus script remains unreadable.': 'Thousands of inscribed seals and tablets have been discovered, covered in a script of approximately 400 distinct symbols. Despite decades of attempts by linguists, cryptographers, and even artificial intelligence systems, the Indus script remains unreadable.',
+    'UFOs, paranormal events, and unexplained mysteries': '不明飞行物、超自然现象和未解之谜',
+    'Unknown Phenomena': '未解之谜',
+    'Unsolved Crimes': 'Unsolved Crimes',
+    'What Did It Do?': '它的作用是什么？',
+    'What We've Learned': 'What We've Learned',
+    'What makes the Indus Valley Civilization particularly mysterious is the apparent absence of violence in its end. Unlike other ancient civilizations that show signs of warfare or conquest, Indus cities seem to have simply been abandoned, their inhabitants dispersing into smaller communities.': 'What makes the Indus Valley Civilization particularly mysterious is the apparent absence of violence in its end. Unlike other ancient civilizations that show signs of warfare or conquest, Indus cities seem to have simply been abandoned, their inhabitants dispersing into smaller communities.',
+    'What other technological marvels did the ancient world create that have since vanished? The mechanism stands as a humbling reminder that our ancestors were far more sophisticated than we often credit them.': '古代世界还创造了哪些后来消失的技术奇迹？这个机制作为一个谦卑的提醒，我们的祖先远比我们通常认为的要复杂得多。',
+    'What they found was extraordinary: colossal statues, shipwrecks, jewelry, coins, and inscriptions that confirmed the city's identity. A massive stele bearing the pharaoh's decree established that Thonis and Heracleion were indeed the same city.': 'What they found was extraordinary: colossal statues, shipwrecks, jewelry, coins, and inscriptions that confirmed the city's identity. A massive stele bearing the pharaoh's decree established that Thonis and Heracleion were indeed the same city.',
+    'When archaeologist Valerios Stais first examined the mysterious lump of bronze, he noticed gear teeth embedded in the corrosion. It seemed impossible. The ancient Greeks weren't supposed to have possessed the technical knowledge to create such sophisticated machinery. Yet there it was, defying two millennia of historical assumptions.': '当考古学家瓦莱里奥斯·斯塔伊斯首次检查这块神秘的青铜团块时，他注意到腐蚀中嵌入了齿轮齿。这似乎是不可能的。古希腊人本不该拥有制造如此精密机械的技术知识。然而它就在那里，挑战着两千年的历史假设。',
+    'When the Bolsheviks seized power in 1917, the imperial family's treasures were confiscated. Many Faberg\u00e9 eggs were sold abroad by the Soviet government to raise foreign currency. Others disappeared in the chaos of revolution and civil war. The last eggs created for the doomed Romanovs may have been looted from the palace or hidden by loyal servants.': 'When the Bolsheviks seized power in 1917, the imperial family's treasures were confiscated. Many Fabergé eggs were sold abroad by the Soviet government to raise foreign currency. Others disappeared in the chaos of revolution and civil war. The last eggs created for the doomed Romanovs may have been looted from the palace or hidden by loyal servants.',
+    'While mass dancing plagues have disappeared, similar phenomena continue to occur. In 1962, an outbreak of laughter spread through a village in Tanzania, affecting hundreds of people. Mass psychogenic illness remains a recognized medical phenomenon, usually appearing in settings of extreme stress and social pressure.': 'While mass dancing plagues have disappeared, similar phenomena continue to occur. In 1962, an outbreak of laughter spread through a village in Tanzania, affecting hundreds of people. Mass psychogenic illness remains a recognized medical phenomenon, usually appearing in settings of extreme stress and social pressure.',
+    'While the civilization itself disappeared, its influence may persist in unexpected ways. Some scholars believe that yoga, meditation practices, and even aspects of Hindu cosmology have roots in Indus Valley traditions. The famous ': 'While the civilization itself disappeared, its influence may persist in unexpected ways. Some scholars believe that yoga, meditation practices, and even aspects of Hindu cosmology have roots in Indus Valley traditions. The famous \"Proto-Shiva\" seal, depicting a figure in a yogic posture surrounded by animals, hints at religious practices that would evolve into later Indian spiritual traditions.',
+    'Why Did It Sink?': 'Why Did It Sink?',
+    'Without the ability to read their writing, fundamental questions about the civilization remain unanswered. What language did they speak? What were their religious beliefs? Why did their civilization collapse? The script holds the key to understanding one of humanity's most sophisticated early societies.': 'Without the ability to read their writing, fundamental questions about the civilization remain unanswered. What language did they speak? What were their religious beliefs? Why did their civilization collapse? The script holds the key to understanding one of humanity's most sophisticated early societies.',
+};
 
-(function() {
-    // Translation dictionary: English -> Chinese
-    const translations = {
-        'Home': '首页',
-        'About': '关于我们',
-        'Mystery History': '神秘历史',
-        'Explore Stories': '探索故事',
-        'Ancient Mysteries': '古代之谜',
-        'Enigmas from antiquity that defy explanation': '来自远古的难解之谜',
-        'Interesting History': '趣味历史',
-        'Fascinating lesser-known stories from world history': '世界历史中鲜为人知的精彩故事',
-        'Unknown Phenomena': '未解之谜',
-        'UFOs, paranormal events, and unexplained mysteries': '不明飞行物、超自然现象和未解之谜',
-        'All rights reserved.': '版权所有。',
-        'Back to Categories': '返回分类'
-    };
-
-
-    // Current language state
-    let currentLang = localStorage.getItem('preferredLanguage') || 'en';
-
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        if (currentLang === 'zh') {
-            applyTranslations();
-        }
-        updateToggleButton();
-    });
-
-    // Toggle language function
-    window.toggleLanguage = function() {
-        currentLang = currentLang === 'en' ? 'zh' : 'en';
-        localStorage.setItem('preferredLanguage', currentLang);
-        
-        if (currentLang === 'zh') {
-            applyTranslations();
-        } else {
-            restoreEnglish();
-        }
-        updateToggleButton();
-    };
-
-    function applyTranslations() {
-        document.querySelectorAll('[data-translate]').forEach(function(el) {
-            const key = el.getAttribute('data-translate');
-            if (translations[key]) {
-                if (!el.getAttribute('data-original')) {
-                    el.setAttribute('data-original', el.textContent.trim());
-                }
-                el.textContent = translations[key];
-            }
-        });
-    }
-
-    function restoreEnglish() {
-        document.querySelectorAll('[data-translate]').forEach(function(el) {
-            const original = el.getAttribute('data-original');
-            if (original) {
-                el.textContent = original;
-            }
-        });
-    }
-
-    function updateToggleButton() {
-        const btn = document.getElementById('langToggle');
-        if (btn) {
-            btn.textContent = currentLang === 'en' ? 'EN | 中文' : 'EN | 中文';
-        }
-    }
-})();
+export default translations;
