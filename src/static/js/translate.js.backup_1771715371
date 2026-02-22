@@ -1,0 +1,154 @@
+// Language Toggle System for Mystery History Website
+// Clean implementation with proper syntax
+
+(function() {
+    // Complete translation dictionary
+    const translations = {
+        // Navigation
+        'Home': '首页',
+        'About': '关于我们',
+        'Mystery History': '神秘历史',
+        'Explore Stories': '探索故事',
+        
+        // Categories
+        'Ancient Mysteries': '古代之谜',
+        'Enigmas from antiquity that defy explanation': '来自古代的难解之谜',
+        'Interesting History': '趣味历史',
+        'Fascinating lesser-known stories from world history': '世界历史中鲜为人知的精彩故事',
+        'Unknown Phenomena': '未解之谜',
+        'UFOs, paranormal events, and unexplained mysteries': '不明飞行物、超自然现象和未解之谜',
+        
+        // Footer
+        'All rights reserved.': '版权所有。',
+        
+        // About page
+        'About Mystery History': '关于神秘历史',
+        'Welcome to Mystery History, your gateway to the world\'s most fascinating unsolved mysteries and forgotten tales from the past.': '欢迎来到神秘历史，这里是通往世界上最迷人的未解之谜和被遗忘故事的入口。',
+        'Our Mission': '我们的使命',
+        'We are dedicated to bringing you well-researched, engaging stories about historical mysteries that continue to captivate and puzzle us.': '我们致力于为您带来经过深入研究、引人入胜的历史谜团故事。',
+        'What We Cover': '我们的内容',
+        'Join us on this journey through time as we uncover the secrets of the past.': '加入我们，一起踏上穿越时空的旅程，揭开过去的秘密。',
+        'Back to Categories': '返回分类',
+        
+        // Story titles and descriptions
+        'The Antikythera Mechanism': '安提基特拉机械',
+        'The Voynich Manuscript': '伏尼契手稿',
+        'The Indus Valley Civilization': '印度河文明',
+        'The Lost Fabergé Eggs': '丢失的法贝热彩蛋',
+        'The Lost City of Heracleion': '失落的赫拉克利翁城',
+        'The Dancing Plague of 1518': '1518年舞蹈瘟疫',
+        
+        // Chinese attributes (for reverse translation)
+        '首页': 'Home',
+        '关于我们': 'About',
+        '神秘历史': 'Mystery History',
+        '探索故事': 'Explore Stories',
+        '古代之谜': 'Ancient Mysteries',
+        '来自古代的难解之谜': 'Enigmas from antiquity that defy explanation',
+        '趣味历史': 'Interesting History',
+        '世界历史中鲜为人知的精彩故事': 'Fascinating lesser-known stories from world history',
+        '未解之谜': 'Unknown Phenomena',
+        '不明飞行物、超自然现象和未解之谜': 'UFOs, paranormal events, and unexplained mysteries'
+    };
+
+    // Current language state
+    let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+
+    // Toggle language function - properly defined
+    function toggleLanguage() {
+        currentLang = currentLang === 'en' ? 'zh' : 'en';
+        localStorage.setItem('preferredLanguage', currentLang);
+        
+        if (currentLang === 'zh') {
+            applyTranslations();
+        } else {
+            restoreEnglish();
+        }
+        updateToggleButton();
+        
+        console.log('Language toggled to:', currentLang);
+    }
+
+    function applyTranslations() {
+        // Find all elements with data-translate attribute
+        const elements = document.querySelectorAll('[data-translate]');
+        elements.forEach(function(el) {
+            const key = el.getAttribute('data-translate');
+            if (translations[key]) {
+                // Store original text if not already stored
+                if (!el.getAttribute('data-original')) {
+                    el.setAttribute('data-original', el.textContent.trim());
+                }
+                el.textContent = translations[key];
+            }
+        });
+        
+        // Update page title if needed
+        updatePageTitle();
+    }
+
+    function restoreEnglish() {
+        const elements = document.querySelectorAll('[data-translate]');
+        elements.forEach(function(el) {
+            const original = el.getAttribute('data-original');
+            if (original) {
+                el.textContent = original;
+            }
+        });
+        
+        // Restore page title
+        restorePageTitle();
+    }
+
+    function updateToggleButton() {
+        const btn = document.getElementById('langToggle');
+        if (btn) {
+            if (currentLang === 'en') {
+                btn.textContent = 'EN | 中文';
+                btn.title = 'Switch to Chinese';
+            } else {
+                btn.textContent = '中文 | EN';
+                btn.title = 'Switch to English';
+            }
+        }
+    }
+
+    function updatePageTitle() {
+        const titleElement = document.querySelector('title');
+        if (titleElement && translations[titleElement.textContent]) {
+            titleElement.textContent = translations[titleElement.textContent];
+        }
+    }
+
+    function restorePageTitle() {
+        // Implementation for restoring page title if needed
+    }
+
+    // Initialize on page load
+    function init() {
+        console.log('Language toggle system initialized');
+        
+        // Apply saved language preference
+        if (currentLang === 'zh') {
+            applyTranslations();
+        }
+        updateToggleButton();
+        
+        // Log initialization status
+        const elements = document.querySelectorAll('[data-translate]');
+        console.log(`Found ${elements.length} translatable elements`);
+        console.log(`Current language: ${currentLang}`);
+    }
+
+    // Wait for DOM to be fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+    // Export toggleLanguage to global scope
+    window.toggleLanguage = toggleLanguage;
+    
+    console.log('Language toggle system loaded successfully');
+})();

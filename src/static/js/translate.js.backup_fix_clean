@@ -1,0 +1,101 @@
+// Language Toggle System for Mystery History Website
+// High-quality Chinese translations
+
+(function() {
+    // Translation dictionary with high-quality Chinese translations
+    const translations = {
+    'Home': '首页',
+    'About': '关于我们',
+    'Mystery History': '神秘历史',
+    'Explore Stories': '探索故事',
+    'Ancient Mysteries': '古代之谜',
+    'Interesting History': '趣味历史',
+    'Unknown Phenomena': '未解之谜',
+    'Enigmas from antiquity that defy explanation': '来自远古的难解之谜',
+    'Fascinating lesser-known stories from world history': '世界历史中鲜为人知的精彩故事',
+    'UFOs, paranormal events, and unexplained mysteries': '不明飞行物、超自然现象和未解之谜',
+    '探索故事': 'Explore Stories',
+    '未解之谜': 'Unknown Phenomena',
+    '来自远古的难解之谜': 'Enigmas from antiquity that defy explanation',
+    '不明飞行物、超自然现象和未解之谜': 'UFOs, paranormal events, and unexplained mysteries',
+    '神秘历史': 'Mystery History',
+    '趣味历史': 'Interesting History',
+    '古代之谜': 'Ancient Mysteries',
+    '关于我们': 'About',
+    '世界历史中鲜为人知的精彩故事': 'Fascinating lesser-known stories from world history',
+    '首页': 'Home',
+};
+
+    // Current language state
+    let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Apply saved language preference
+        if (currentLang === 'zh') {
+            applyTranslations();
+            updateToggleButton();
+        }
+    });
+
+    // Toggle language function (called by button)
+    window.toggleLanguage = function() {
+        currentLang = currentLang === 'en' ? 'zh' : 'en';
+        localStorage.setItem('preferredLanguage', currentLang);
+        
+        if (currentLang === 'zh') {
+            applyTranslations();
+        } else {
+            restoreEnglish();
+        }
+        updateToggleButton();
+    };
+
+    function applyTranslations() {
+        // Find all elements with data-translate attribute
+        document.querySelectorAll('[data-translate]').forEach(function(el) {
+            const key = el.getAttribute('data-translate');
+            if (translations[key]) {
+                // Store original English text
+                if (!el.getAttribute('data-original')) {
+                    el.setAttribute('data-original', el.textContent.trim());
+                }
+                el.textContent = translations[key];
+            }
+        });
+        
+        // Also update page title if it contains translatable content
+        updatePageTitle();
+    }
+
+    function restoreEnglish() {
+        document.querySelectorAll('[data-translate]').forEach(function(el) {
+            const original = el.getAttribute('data-original');
+            if (original) {
+                el.textContent = original;
+            }
+        });
+        
+        // Restore page title
+        restorePageTitle();
+    }
+
+    function updateToggleButton() {
+        const btn = document.getElementById('langToggle');
+        if (btn) {
+            btn.textContent = 'EN | 中文';  // Show both languages
+        }
+    }
+
+    function updatePageTitle() {
+        const titleElement = document.querySelector('title');
+        if (titleElement && translations[titleElement.textContent]) {
+            titleElement.textContent = translations[titleElement.textContent];
+        }
+    }
+
+    function restorePageTitle() {
+        // Page titles are handled by data-original on the title element if needed
+        // For now, we focus on body content translation
+    }
+})();
