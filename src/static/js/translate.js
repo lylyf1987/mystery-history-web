@@ -2,7 +2,6 @@
 // Toggle language between English and Chinese versions
 function toggleLanguage() {
     const currentUrl = window.location.pathname;
-    const langToggleBtn = document.getElementById('langToggle');
     
     // Check if currently on Chinese version
     if (currentUrl.endsWith('-zh.html')) {
@@ -19,16 +18,17 @@ function toggleLanguage() {
 // Update button text to show what language will switch TO
 function updateLangButton() {
     const currentUrl = window.location.pathname;
-    const langToggleBtn = document.getElementById('langToggle');
-    if (langToggleBtn) {
+    // Update ALL language toggle buttons (handles duplicate IDs issue)
+    const langButtons = document.querySelectorAll('.language-toggle');
+    langButtons.forEach(btn => {
         if (currentUrl.endsWith('-zh.html')) {
             // We're on Chinese page, show button to switch to EN
-            langToggleBtn.textContent = 'EN';
+            btn.textContent = 'EN';
         } else {
             // We're on English page, show button to switch to Chinese
-            langToggleBtn.textContent = '中文';
+            btn.textContent = '中文';
         }
-    }
+    });
 }
 
 // Initialize button on page load
