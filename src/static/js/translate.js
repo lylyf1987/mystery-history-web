@@ -141,4 +141,4 @@ const translations = {
     'Without the ability to read their writing, fundamental questions about the civilization remain unanswered. What language did they speak? What were their religious beliefs? Why did their civilization collapse? The script holds the key to understanding one of humanity's most sophisticated early societies.': 'Without the ability to read their writing, fundamental questions about the civilization remain unanswered. What language did they speak? What were their religious beliefs? Why did their civilization collapse? The script holds the key to understanding one of humanity's most sophisticated early societies.',
 };
 
-export default translations;
+// translations dictionary available for use
