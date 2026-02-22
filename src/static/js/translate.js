@@ -1,3 +1,40 @@
+
+// Toggle language between English and Chinese versions
+function toggleLanguage() {
+    const currentUrl = window.location.pathname;
+    const langToggleBtn = document.getElementById('langToggle');
+    
+    // Check if currently on Chinese version
+    if (currentUrl.endsWith('-zh.html')) {
+        // Switch to English version
+        const englishUrl = currentUrl.replace('-zh.html', '.html');
+        window.location.href = englishUrl;
+    } else {
+        // Switch to Chinese version
+        const chineseUrl = currentUrl.replace('.html', '-zh.html');
+        window.location.href = chineseUrl;
+    }
+}
+
+// Update button text to show what language will switch TO
+function updateLangButton() {
+    const currentUrl = window.location.pathname;
+    const langToggleBtn = document.getElementById('langToggle');
+    if (langToggleBtn) {
+        if (currentUrl.endsWith('-zh.html')) {
+            // We're on Chinese page, show button to switch to EN
+            langToggleBtn.textContent = 'EN';
+        } else {
+            // We're on English page, show button to switch to Chinese
+            langToggleBtn.textContent = '中文';
+        }
+    }
+}
+
+// Initialize button on page load
+document.addEventListener('DOMContentLoaded', updateLangButton);
+
+
 // Translation dictionary
 const translations = {
     '&copy; 2024 Mystery History. All rights reserved.': '© 2024 神秘历史. 版权所有。',
