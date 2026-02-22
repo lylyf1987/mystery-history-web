@@ -1,41 +1,70 @@
 // Language Toggle System for Mystery History Website
-// Switches between separate .html and -zh.html files
+// Switches between separate files using Vercel clean URLs (no .html extension)
 
 (function() {
-    // Current URL path detection
-    function getCurrentPageName() {
-        const path = window.location.pathname;
-        // Extract filename from path
-        const filename = path.split('/').pop() || 'index.html';
-        return filename;
-    }
-    
+    // Detect if current page is Chinese version
     function isChinesePage() {
-        const filename = getCurrentPageName();
-        return filename.endsWith('-zh.html');
+        const path = window.location.pathname;
+        // Simply check if the path ends with -zh or -zh.html
+        return path.endsWith('-zh') || path.endsWith('-zh.html') || path === '/index-zh';
     }
     
+    // Get current base path (directory or root)
     function getBasePath() {
         const path = window.location.pathname;
-        // Get directory path
-        return path.substring(0, path.lastIndexOf('/')) + '/';
+        const lastSlash = path.lastIndexOf('/');
+        if (lastSlash <= 0) {
+            return '/';
+        }
+        return path.substring(0, lastSlash + 1);
+    }
+    
+    // Get page name without extension
+    function getPageName() {
+        const path = window.location.pathname;
+        // Handle root path
+        if (path === '/' || path === '' || path === '/index' || path === '/index.html') {
+            return 'index';
+        }
+        // Remove trailing slash if present
+        let cleanPath = path.endsWith('/') ? path.slice(0, -1) : path;
+        // Get last segment
+        const segments = cleanPath.split('/');
+        let pageName = segments[segments.length - 1];
+        // Remove .html extension if present (for local dev)
+        if (pageName.endsWith('.html')) {
+            pageName = pageName.replace('.html', '');
+        }
+        return pageName;
     }
     
     // Toggle language by navigating to corresponding file
     window.toggleLanguage = function() {
         const basePath = getBasePath();
-        const filename = getCurrentPageName();
+        const pageName = getPageName();
         
-        let newFilename;
-        if (filename.endsWith('-zh.html')) {
-            // Switch to English version
-            newFilename = filename.replace('-zh.html', '.html');
+        let newPageName;
+        if (pageName.endsWith('-zh')) {
+            // Switch to English version - remove -zh suffix
+            newPageName = pageName.replace(/-zh$/, '');
+            // Handle empty result (e.g., index-zh -> '')
+            if (newPageName === '' || newPageName === '-') {
+                newPageName = 'index';
+            }
         } else {
-            // Switch to Chinese version
-            newFilename = filename.replace('.html', '-zh.html');
+            // Switch to Chinese version - add -zh suffix
+            newPageName = pageName + '-zh';
         }
         
-        window.location.href = basePath + newFilename;
+        // Build new URL
+        let newUrl;
+        if (basePath === '/' && newPageName === 'index') {
+            newUrl = '/index';
+        } else {
+            newUrl = basePath + newPageName;
+        }
+        
+        window.location.href = newUrl;
     };
     
     // Update button text on page load
