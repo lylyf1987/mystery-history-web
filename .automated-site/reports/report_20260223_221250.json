@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-02-23T22:12:50.297989",
+  "cycle": 3,
+  "posts_created": 0,
+  "categories_updated": [],
+  "word_count_total": 0,
+  "sources_added": 0,
+  "deployment_status": "success",
+  "errors": [
+    "ancient-mysteries validation failed: ['Word count (237) below minimum (2000)']",
+    "interesting-history validation failed: ['Word count (244) below minimum (2000)']",
+    "unknown-phenomena validation failed: ['Word count (237) below minimum (2000)']"
+  ],
+  "next_update": "2026-02-23 22:12:50 UTC"
+}
