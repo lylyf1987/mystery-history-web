@@ -29,26 +29,6 @@
 }
 
 /* Dark Mode Colors */
-[data-theme="dark"] {
-    --bg-primary: #1a1a2e;
-    --bg-secondary: #16213e;
-    --bg-tertiary: #0f3460;
-    --text-primary: #e4e4e7;
-    --text-secondary: #a1a1aa;
-    --text-muted: #71717a;
-    --accent-color: #a78bfa;
-    --accent-hover: #c4b5fd;
-    --link-color: #60a5fa;
-    --link-hover: #93c5fd;
-    --border-color: #374151;
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --quote-bg: #1e293b;
-    --quote-border: #a78bfa;
-    --callout-bg: #422006;
-    --callout-border: #f59e0b;
-    --progress-bg: #374151;
-    --sources-bg: #1e293b;
-}
 
 /* Smooth Theme Transition */
 *, *::before, *::after {
@@ -147,23 +127,7 @@ body {
 }
 
 /* Dark Mode Toggle */
-.theme-toggle {
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    transition: transform 0.2s, background-color 0.3s;
-}
 
-.theme-toggle:hover {
-    transform: rotate(15deg) scale(1.1);
-}
 
 /* Main Content */
 .site-main {
@@ -669,11 +633,6 @@ body {
 /* Print Styles */
 @media print {
     .progress-bar,
-    .theme-toggle,
-    .back-to-top,
-    .site-nav {
-        display: none;
-    }
     
     body {
         font-size: 12pt;
