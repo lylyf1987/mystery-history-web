@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-02-23T23:04:02.439986",
+  "cycle": 9,
+  "posts_created": 2,
+  "categories_updated": [
+    "ancient-mysteries",
+    "interesting-history"
+  ],
+  "word_count_total": 4895,
+  "sources_added": 24,
+  "deployment_status": "failed",
+  "errors": [
+    "unknown-phenomena: No new topic available",
+    "b\"fatal: could not open '/dev/null' for reading and writing: Operation not permitted\\n\""
+  ],
+  "trending_posts": 0,
+  "next_update": "2026-02-23 23:04:02 UTC"
+}

@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-02-23T22:43:36.651119",
+  "cycle": 6,
+  "posts_created": 0,
+  "categories_updated": [],
+  "word_count_total": 0,
+  "sources_added": 0,
+  "deployment_status": "failed",
+  "errors": [
+    "ancient-mysteries validation failed: ['No sources provided']",
+    "interesting-history validation failed: ['No sources provided']",
+    "unknown-phenomena validation failed: ['No sources provided']",
+    "b\"fatal: could not open '/dev/null' for reading and writing: Operation not permitted\\n\""
+  ],
+  "trending_posts": 0,
+  "next_update": "2026-02-23 22:43:36 UTC"
+}

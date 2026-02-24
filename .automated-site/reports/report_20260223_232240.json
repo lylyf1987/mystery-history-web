@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-02-23T23:22:40.368220",
+  "cycle": 14,
+  "posts_created": 0,
+  "categories_updated": [],
+  "word_count_total": 0,
+  "sources_added": 0,
+  "deployment_status": "failed",
+  "errors": [
+    "ancient-mysteries: No new topic available",
+    "interesting-history: No new topic available",
+    "unknown-phenomena: No new topic available",
+    "b\"fatal: could not open '/dev/null' for reading and writing: Operation not permitted\\n\""
+  ],
+  "trending_posts": 0,
+  "next_update": "2026-02-23 23:22:40 UTC"
+}
