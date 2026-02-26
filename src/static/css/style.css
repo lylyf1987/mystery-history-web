@@ -251,28 +251,11 @@ body {
     }
 }
 
-/* Language Toggle Button */
-.language-toggle {
-    background: transparent;
-    color: #3498db;
-    border: 1px solid #3498db;
-    padding: 6px 14px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    margin-left: 16px;
-    vertical-align: middle;
-}
-
-.language-toggle:hover {
     background: #3498db;
     color: white;
 }
 
 @media (max-width: 768px) {
-    .language-toggle {
         margin-left: 12px;
         margin-top: 0;
     }
