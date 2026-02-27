@@ -1,0 +1,35 @@
+name: Submit IndexNow
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - "src/**"
+      - "scripts/submit-indexnow.sh"
+      - ".github/workflows/indexnow.yml"
+  workflow_dispatch:
+
+jobs:
+  submit-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate secret
+        run: |
+          if [ -z "${INDEXNOW_KEY}" ]; then
+            echo "Missing GitHub Actions secret: INDEXNOW_KEY"
+            exit 1
+          fi
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+
+      - name: Submit sitemap URLs to IndexNow
+        run: scripts/submit-indexnow.sh
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          INDEXNOW_SITEMAP_URL: https://mystery-history-web.vercel.app/sitemap.xml
+          INDEXNOW_HOST: mystery-history-web.vercel.app

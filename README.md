@@ -35,6 +35,35 @@ mystery-history-web/
 2. Settings are in vercel.json
 3. Deploy!
 
+## 🔎 Bing + IndexNow
+
+### Bing Webmaster Tools (one-time)
+1. Add your site in Bing Webmaster Tools: `https://mystery-history-web.vercel.app`
+2. Verify ownership (recommended: import from Google Search Console, or upload Bing XML file if prompted).
+3. Submit sitemap:
+   - `https://mystery-history-web.vercel.app/sitemap.xml`
+
+### IndexNow (already wired in this repo)
+- Ownership key file is included at:
+  - `src/0f9062759dcf474f9b27cb2d166aa8ed.txt`
+- After deployment, this URL must return `200`:
+  - `https://mystery-history-web.vercel.app/0f9062759dcf474f9b27cb2d166aa8ed.txt`
+- GitHub Action auto-submit is included at:
+  - `.github/workflows/indexnow.yml`
+  - Add repository secret `INDEXNOW_KEY` with value `0f9062759dcf474f9b27cb2d166aa8ed`
+
+Submit all sitemap URLs to IndexNow:
+
+```bash
+INDEXNOW_KEY=0f9062759dcf474f9b27cb2d166aa8ed scripts/submit-indexnow.sh
+```
+
+Dry run (preview payload only):
+
+```bash
+INDEXNOW_KEY=0f9062759dcf474f9b27cb2d166aa8ed scripts/submit-indexnow.sh --dry-run
+```
+
 ## 💰 Cost
 - Hosting: FREE (Netlify/Vercel free tier)
 - Domain: ~$10-15/year (optional custom domain)
